@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كوفي F9 - النظام الذكي</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="Hm.css">
+</head>
+<body>
+    <header>
+        <h1>
+            <img src="logo.jpg" alt="شعار كوفي F9" style="height: 70px; vertical-align: middle; margin-left: 10px;">
+            <i class="fas fa-robot"></i> 9F COFFEE 
+            <a href="" class="">
+                <i class=""></i> 
+            </a>
+        </h1>
+    </header>
+
+    <!-- قسم التصنيفات -->
+    <section class="section">
+        <div class="section-header">
+            <h2><i class="fas fa-filter"></i> اختر التصنيف</h2>
+            <select id="category-select" onchange="updateMealList()">
+                <option value="">اختر تصنيفًا</option>
+                <option value="hot-drinks">المشروبات الساخنة</option>
+                <option value="cold-drinks">المشروبات الباردة</option>
+                <option value="desserts">الحلويات</option>
+            </select>
+        </div>
+    </section>
+
+    <!-- قسم اختيار الوجبة -->
+    <section class="section">
+        <div class="section-header" onclick="toggleSection('menu')">
+            <h2><i class="fas fa-utensils"></i> اختر الوجبة</h2>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="section-content" id="menu-content">
+            <select id="meal-select" onchange="updateSelectedMeal()">
+                <option value="">اختر وجبة</option>
+            </select>
+            <div id="selected-meal"></div>
+        </div>
+    </section>
+
+    <!-- قسم الدفع -->
+    <section class="section">
+        <div class="section-header" onclick="toggleSection('payment')">
+            <h2><i class="fas fa-credit-card"></i> الدفع الإلكتروني</h2>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="section-content" id="payment-content">
+            <div class="bank-details">
+                <h3>تفاصيل الحساب البنكي</h3>
+                <p>اسم الحساب: علي أحمد علي الشهري</p>
+                <p>رقم الحساب: 321000010006086051544</p>
+                <p>رقم البيان: SA11 8000 0321 6080 1605 1544</p>
+                <p>كود سويفت: RJHISARI</p>
+            </div>
+            <button onclick="processPayment()">الدفع الآن <i class="fas fa-credit-card"></i></button>
+            <div id="payment-status"></div>
+        </div>
+    </section>
+
+    <!-- قسم الفاتورة -->
+    <section class="section">
+        <div class="section-header" onclick="toggleSection('invoice')">
+            <h2><i class="fas fa-file-invoice"></i> الفاتورة</h2>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="section-content" id="invoice-content">
+            <div id="invoice"></div>
+        </div>
+    </section>
+
+    <!-- نظام الرد الصوتي -->
+    <section class="section">
+        <div class="section-header" onclick="toggleSection('voice')">
+            <h2><i class="fas fa-microphone"></i> الرد الصوتي</h2>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="section-content" id="voice-content">
+            <button onclick="startVoiceAssistant()">
+                <i class="fas fa-microphone"></i> تفعيل الرد الآلي
+            </button>
+            <div id="voice-response"></div>
+        </div>
+    </section>
+
+    <script src="HM.js"></script>
+</body>
+</html>
